@@ -10,6 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^0.28.9",
+    "file-loader": "^1.1.6",
     "less-loader": "^4.0.5",
     "style-loader": "^0.20.1"
   }
