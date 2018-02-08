@@ -1,6 +1,6 @@
 import './css/a.css';
 import './css/b.css';
-
-import(/**webpackChunkName:'components.css*/'./components/components.js').then(function(data){
+// import './components/components'
+import(/*webpackChunkName:'components'*/ './components/components').then(function(data){
   console.log(data)
 })

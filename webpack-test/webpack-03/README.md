@@ -6,7 +6,7 @@
 ###  insertAt: 'bottom', /** top,bottom  插入位置 */
 ###  insertInto: '#box', /** 生成 style, 插入 DOM */
 ###  singleton: true, /** 合并多个 style 标签为一个标签 */
-###  transform: url, /** 对 css 文件做特殊处理，url 为处理打包后 css 文件的 js 文件路径  */
+###  transform: url, /** 对 css 文件做特殊处理，url 为处理打包后 生成 js 文件的路径  */
 ###}
 
 # 更多内容 https://doc.webpack-china.org/loaders
