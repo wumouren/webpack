@@ -1,0 +1,9 @@
+body{
+  padding: 0;
+  margin: 0;
+}
+.aa{
+  background: red;
+  width: 366px;
+  height: 300px;
+}
