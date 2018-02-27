@@ -1,0 +1,15 @@
+.img{
+  float: left;
+  width: 200px;
+  height: 200px;
+  border: 1px solid red;
+}
+.img-box1{
+  background: url('../img/04.jpg');
+}
+.img-box2{
+  background: url('../img/05.jpg');
+}
+.img-box3{
+  background: url('../img/06.jpg');
+}

@@ -1,0 +1,21 @@
+@import '../dist/css/index.min.css';
+@import './a.css';
+.box{
+  width: 300px;
+  height: 300px;
+  float: left;
+  border: 1px solid black;
+}
+
+.box1{
+  background: url('../img/3.jpg') no-repeat;
+  background-size: 100% 100%;
+}
+.box2{
+  background: url('../img/4.jpg') no-repeat;
+  background-size: 100% 100%;
+}
+.box3{
+  background: url('../img/5.jpg') no-repeat;
+  background-size: 100% 100%;
+}
