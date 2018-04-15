@@ -5,5 +5,6 @@
 #root{
   width: 300px;
   height: 300px;
-  background: green;
+  background: black;
+  color: #fff
 }

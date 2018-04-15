@@ -5,8 +5,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin'); // 注意版�
 const webpack = require('webpack');
 const path = require('path');
 module.exports = (env, argv) => {
-  console.log(env,'==================', argv.mode)
-  console.log(path.resolve(__dirname),'-=-=-=-=-=-=')
   return {
     entry: {
       index: './src/index.js',
@@ -14,11 +12,6 @@ module.exports = (env, argv) => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'js/[name].min.js'
-    },
-
-    // optimization 优化配置 webpack 4 新增
-    optimization: {
-      
     },
 
     // 模块相关 
