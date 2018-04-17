@@ -9,7 +9,7 @@ import './js/b.js';
 
 import tool from './tool'
 
-import {say, play} from 'says.js'
+import {say, play} from 'says'
 console.log(say,play)
 
 const Ajax = () => {

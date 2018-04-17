@@ -1,17 +1,28 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); 
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin'); // 注意版本号 webpack 4 以上版本请下载 @next 版本
-
+const merge = require('webpack-merge')
 const webpack = require('webpack');
 const path = require('path');
+
+const prodConf = require('./webpack.prod.conf');
+const devConf = require('./webpack.dev.conf');
+
 module.exports = (env, argv) => {
-  return {
+  console.log(env,'==================', argv.mode)
+
+  const baseConf = {
     entry: {
-      index: './src/index.js',
+      index:  path.resolve(__dirname, '../src/index.js'),
     },
     output: {
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, '../dist'),
       filename: 'js/[name].min.js'
+    },
+
+    // optimization 优化配置 webpack 4 新增
+    optimization: {
+      
     },
 
     // 模块相关 
@@ -75,43 +86,18 @@ module.exports = (env, argv) => {
     resolve: {
       // 别名
       alias: {
-        Js: path.resolve(__dirname + '/src/js'),
-        Less: path.resolve(__dirname, './src/css'),
-        Css$: path.resolve(__dirname, './src/css/index.css')
+        Js: path.resolve(__dirname, '../src/js'),
+        Less: path.resolve(__dirname, '../src/css'),
+        Css$: path.resolve(__dirname, '../src/css/index.css')
       },
       // 文件后缀补全
       extensions: ['.js','.jsx','.less','.css'],
       modules: [
-        path.resolve(__dirname, 'my_modules'),
+        path.resolve(__dirname, '../my_modules'),
         'node_modules',
       ]
     },
 
-    // 生成 source-map
-    // devtool: 'source-map',
-    devtool: 'cheap-module-eval-source-map',
-
-    // 提供静态服务
-    devServer:{ 
-      contentBase: path.resolve(__dirname, "dist"),
-      port: 9999,
-      publicPath: '/',
-      overlay:{ //当有编译错误或者警告的时候显示一个全屏 overlay
-        errors:true,
-        warnings:true,
-      },
-      headers: { // 添加头部信息
-        "X-Custom-Foo": "bar"
-      },
-      proxy: { // 请求代理
-        "/api": {
-          target: "http://localhost:3000",
-          pathRewrite: { 
-            "^/api": "",
-          }
-        }
-      },
-    },
     plugins: [
       // 每次打包前清除 dist 下的文件
       new CleanWebpackPlugin('dist'),
@@ -122,8 +108,10 @@ module.exports = (env, argv) => {
       // 生成新的 html 文件
       new HtmlWebpackPlugin({ 
         filename: 'index.html', // 如果文件名不是 index , 开发时要在 url 处添加文件名
-        template: path.resolve(__dirname + '/src/index.html'), // 注意路径,
+        template: path.resolve(__dirname, '../src/index.html'), // 注意路径,
       }),
     ]
   }
+  const config = env === 'dev' ? devConf : prodConf;
+  return merge(baseConf,devConf)
 }

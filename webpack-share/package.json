@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --open --env dev --mode development --progress",
-    "build": "webpack --mode production --progress"
+    "dev": "webpack-dev-server --env dev --mode development --progress",
+    "build": "webpack --mode production --progress",
+    "prod": "webpack --mode production --progress --config ./config/webpack.prod.conf.js",
+    "start": "webpack-dev-server --env dev --mode development --progress --config ./config/webpack.dev.conf.js",
+    "server": "webpack-dev-server --env dev --mode development --progress --config ./config/webpack.base.conf.js"
   },
   "author": "",
   "license": "ISC",
